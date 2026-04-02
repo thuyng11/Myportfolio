@@ -26,7 +26,7 @@ async def lifespan(app: FastAPI):
     yield
 
 
-app = FastAPI(title="Quan Portfolio RAG API", lifespan=lifespan)
+app = FastAPI(title="Thuy Portfolio RAG API", lifespan=lifespan)
 
 
 app.add_middleware(
@@ -101,7 +101,7 @@ def _format_service_error_message(error: Exception) -> str | None:
 
 @app.get("/")
 def root():
-    return {"message": "Quan Portfolio RAG API is running"}
+    return {"message": "Thuy Portfolio RAG API is running"}
 
 
 @app.post("/api/ingest", response_model=IngestResponse)
