@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: thuy-portfolio-api
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false          # Set this manually in the Render dashboard
+      - key: LLM_MODEL
+        value: gpt-4o-mini
+      - key: EMBEDDING_MODEL
+        value: text-embedding-3-small
+      - key: CORS_ORIGINS
+        sync: false          # Set to your deployed frontend URL, e.g. https://thuyng11.github.io

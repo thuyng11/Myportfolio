@@ -1,13 +1,32 @@
+import logging
+from contextlib import asynccontextmanager
+
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
 from app.config import CORS_ORIGINS, EMBEDDING_MODEL, LLM_MODEL
 from app.ingest import ingest_documents
-from app.rag import query_rag
+from app.rag import get_vector_db, query_rag
+
+logger = logging.getLogger(__name__)
 
 
-app = FastAPI(title="Quan Portfolio RAG API")
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """Auto-ingest resume data on startup if the vector store is empty."""
+    try:
+        db = get_vector_db()
+        if db._collection.count() == 0:
+            logger.info("Vector store empty — running initial ingest...")
+            count = ingest_documents(reset=False)
+            logger.info("Ingest complete: %d chunks loaded.", count)
+    except Exception as exc:
+        logger.warning("Startup ingest skipped: %s", exc)
+    yield
+
+
+app = FastAPI(title="Quan Portfolio RAG API", lifespan=lifespan)
 
 
 app.add_middleware(
