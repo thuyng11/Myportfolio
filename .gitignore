@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+venv/
+.venv/
+env/
+.env
+
+# ChromaDB generated data (rebuild with: python ingest.py)
+backend/chroma/
+
+# Node.js
+node_modules/
+Myportfolio/node_modules/
+
+# Build output
+Myportfolio/dist/
+
+# Package lock (optional - uncomment if you want to exclude)
+# package-lock.json
+
+# OS files
+.DS_Store
+Thumbs.db
