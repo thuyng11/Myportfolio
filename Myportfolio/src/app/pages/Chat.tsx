@@ -24,7 +24,7 @@ type IngestApiResponse = {
 
 type IngestStatus = 'pending' | 'done' | 'error';
 
-const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL ?? '').replace(/\/$/, '');
+const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL ?? 'https://myportfolio-x716.onrender.com').replace(/\/$/, '');
 
 export function Chat() {
   const [messages, setMessages] = useState<ChatMessage[]>([
@@ -116,7 +116,7 @@ export function Chat() {
       setMessages((prev) => [...prev, assistantMessage]);
     } catch (requestError) {
       const fallbackError =
-        'I could not reach the backend. Make sure the FastAPI server is running on http://localhost:8000.';
+        'I could not reach the backend. Make sure the API is available at https://myportfolio-x716.onrender.com.';
       const message = requestError instanceof Error ? requestError.message : fallbackError;
       setError(message);
     } finally {
