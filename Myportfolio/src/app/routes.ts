@@ -10,20 +10,23 @@ import { Contact } from './pages/Contact';
 import { Chat } from './pages/Chat';
 import { NotFound } from './pages/NotFound';
 
-export const router = createBrowserRouter([
-  {
-    path: '/',
-    Component: Layout,
-    children: [
-      { index: true, Component: Home },
-      { path: 'education', Component: Education },
-      { path: 'experience', Component: Experience },
-      { path: 'leadership', Component: Leadership },
-      { path: 'skills', Component: Skills },
-      { path: 'projects', Component: Projects },
-      { path: 'contact', Component: Contact },
-      { path: 'chat', Component: Chat },
-      { path: '*', Component: NotFound },
-    ],
-  },
-]);
+export const router = createBrowserRouter(
+  [
+    {
+      path: '/',
+      Component: Layout,
+      children: [
+        { index: true, Component: Home },
+        { path: 'education', Component: Education },
+        { path: 'experience', Component: Experience },
+        { path: 'leadership', Component: Leadership },
+        { path: 'skills', Component: Skills },
+        { path: 'projects', Component: Projects },
+        { path: 'contact', Component: Contact },
+        { path: 'chat', Component: Chat },
+        { path: '*', Component: NotFound },
+      ],
+    },
+  ],
+  { basename: '/Myportfolio' }
+);

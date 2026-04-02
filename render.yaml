@@ -13,4 +13,4 @@ services:
       - key: EMBEDDING_MODEL
         value: text-embedding-3-small
       - key: CORS_ORIGINS
-        sync: false          # Set to your deployed frontend URL, e.g. https://thuyng11.github.io
+        value: http://localhost:5173,http://127.0.0.1:5173,https://thuyng11.github.io
