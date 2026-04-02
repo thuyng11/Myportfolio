@@ -16,7 +16,7 @@ type ChatApiError = {
   detail?: string;
 };
 
-const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL ?? 'https://myportfolio-x716.onrender.com').replace(/\/$/, '');
+const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || 'https://myportfolio-x716.onrender.com').replace(/\/$/, '');
 
 export function Chat() {
   const [messages, setMessages] = useState<ChatMessage[]>([
