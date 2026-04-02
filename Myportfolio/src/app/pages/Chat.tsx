@@ -1,4 +1,4 @@
-import { FormEvent, KeyboardEvent, useEffect, useMemo, useState } from 'react';
+import { FormEvent, KeyboardEvent, useMemo, useState } from 'react';
 import { Bot, Loader2, Send, User } from 'lucide-react';
 
 type ChatMessage = {
@@ -16,14 +16,6 @@ type ChatApiError = {
   detail?: string;
 };
 
-type IngestApiResponse = {
-  success: boolean;
-  count: number;
-  message: string;
-};
-
-type IngestStatus = 'pending' | 'done' | 'error';
-
 const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL ?? 'https://myportfolio-x716.onrender.com').replace(/\/$/, '');
 
 export function Chat() {
@@ -37,45 +29,14 @@ export function Chat() {
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [ingestStatus, setIngestStatus] = useState<IngestStatus>('pending');
 
   const endpoint = useMemo(() => `${API_BASE_URL}/api/chat`, []);
-  const ingestEndpoint = useMemo(() => `${API_BASE_URL}/api/ingest`, []);
-
-  useEffect(() => {
-    let cancelled = false;
-
-    async function runIngest() {
-      try {
-        const response = await fetch(ingestEndpoint, { method: 'POST' });
-        if (!cancelled) {
-          if (!response.ok) {
-            const payload = (await response.json().catch(() => ({}))) as ChatApiError;
-            console.warn('Ingest failed:', payload.detail);
-            setIngestStatus('error');
-          } else {
-            const payload = (await response.json()) as IngestApiResponse;
-            console.info(`Ingest complete: ${payload.message}`);
-            setIngestStatus('done');
-          }
-        }
-      } catch {
-        if (!cancelled) {
-          console.warn('Ingest request failed — backend may not be running.');
-          setIngestStatus('error');
-        }
-      }
-    }
-
-    void runIngest();
-    return () => { cancelled = true; };
-  }, [ingestEndpoint]);
 
   async function sendMessage(event?: FormEvent) {
     event?.preventDefault();
 
     const message = input.trim();
-    if (!message || isLoading || ingestStatus === 'pending') {
+    if (!message || isLoading) {
       return;
     }
 
@@ -140,18 +101,6 @@ export function Chat() {
         </p>
       </div>
 
-      {ingestStatus === 'pending' && (
-        <div className="mb-4 flex items-center gap-2 px-4 py-3 rounded-xl border border-primary/30 bg-primary/10 text-foreground">
-          <Loader2 className="animate-spin flex-shrink-0" size={16} />
-          <span>Preparing knowledge base&hellip;</span>
-        </div>
-      )}
-      {ingestStatus === 'error' && (
-        <div className="mb-4 px-4 py-3 rounded-xl border border-destructive/30 bg-destructive/10 text-destructive text-sm">
-          Knowledge base setup failed. Make sure the backend is running and try refreshing.
-        </div>
-      )}
-
       <div className="rounded-2xl border-2 border-primary/20 bg-card overflow-hidden shadow-sm">
         <div className="h-[56vh] min-h-[420px] overflow-y-auto p-4 sm:p-6 space-y-4 bg-gradient-to-b from-primary/5 via-background to-secondary/5">
           {messages.map((message) => (
@@ -200,15 +149,14 @@ export function Chat() {
               value={input}
               onChange={(event) => setInput(event.target.value)}
               onKeyDown={onInputKeyDown}
-              placeholder={ingestStatus === 'pending' ? 'Preparing knowledge base…' : 'Ask about projects, experience, education, or skills...'}
+              placeholder="Ask about projects, experience, education, or skills..."
               rows={3}
-              disabled={ingestStatus === 'pending'}
               className="flex-1 resize-none rounded-xl border border-primary/30 bg-input-background px-4 py-3 outline-none focus:ring-2 focus:ring-primary/30 disabled:opacity-50 disabled:cursor-not-allowed"
               maxLength={2000}
             />
             <button
               type="submit"
-              disabled={isLoading || ingestStatus === 'pending' || input.trim().length === 0}
+              disabled={isLoading || input.trim().length === 0}
               className="h-12 px-4 rounded-xl bg-primary text-primary-foreground disabled:opacity-50 disabled:cursor-not-allowed hover:bg-primary/85 transition-colors flex items-center gap-2"
             >
               <Send size={16} />
