@@ -27,7 +27,7 @@ export function Projects() {
         '0.81 AUC ROC & feature engineering',
       ],
       color: 'secondary',
-      githubLink: 'https://github.com/keerthana-girish/Empowered-PI'
+      githubLink: 'https://github.com/keerthana-girish/Empowered-PI',
     },
     {
       title: 'Chicago-crime Bayesian Analysis',
