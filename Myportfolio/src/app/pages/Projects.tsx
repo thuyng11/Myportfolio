@@ -47,6 +47,37 @@ export function Projects() {
       githubLink: 'https://github.com/thuyng11/chicago-crime-analysis/blob/main/final-writeup.pdf',
     },
     {
+      title: 'US Academic Research Data Analysis',
+      period: 'December 2025 - Febuary 2026',
+      technologies: ['SQL', 'PostgreSQL', 'MySQL'],
+      description: [
+        'Queried and analyzed 239K+ records across multiple relational datasets using optimized SQL joins, aggregations, and window functions.',
+        'Cleaned and standardized inconsistent data (e.g., name formatting, missing values) using regex and transformation.',
+        'Built ranking models using SQL (GROUP BY, RANK) and evaluated results using statistical metrics (Spearman correlation = 0.02).',
+      ],
+      highlights: [
+        '239K+ records analyzed',
+        'Spearman correlation = 0.02',
+      ],
+      color: 'accent',
+    },
+    {
+      title: 'ICS Search Engine',
+      period: 'October 2025 - December 2025',
+      technologies: ['Python', 'Multithreading', 'Information Retrieval', 'Indexing', 'beautifulsoup', 'lxml'],
+      description: [
+        'Designed a web crawler that collected and indexed data from 10K+ ICS pages using a distributed caching server.'
+        'Implemented a search and retrieval pipeline with text preprocessing, inverted index construction, and multithreaded crawling, improving search efficiency and reducing crawl latency by 45%.'
+        'Applied tokenization, normalization, and ranking techniques to improve search relevance and retrieval efficiency by 20%.',
+      ],
+      highlights: [
+        'Full-stack development',
+        'Web Scraping',
+      ],
+      color: 'secondary',
+      githubLink: 'https://github.com/mushcalli/cs-121-hw-2',
+    },
+    {
       title: 'Healthcare Analytics: Patient No-Show Prediction',
       period: 'April 2025 - June 2025',
       technologies: ['Python', 'XGBoost', 'Pandas', 'scikit-learn', 'EDA'],
@@ -61,6 +92,7 @@ export function Projects() {
         'Data-driven insights for healthcare operations',
       ],
       color: 'primary',
+      githubLnk: 'https://github.com/thuyng11/missappointment-prediction',
     },
   ];
 
