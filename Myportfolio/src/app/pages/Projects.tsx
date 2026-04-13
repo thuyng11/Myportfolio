@@ -26,7 +26,7 @@ export function Projects() {
         '90+ features and targets visualized',
         '0.81 AUC ROC & feature engineering',
       ],
-      color: 'primary',
+      color: 'accent',
       githubLink: 'https://github.com/keerthana-girish/Empowered-PI',
     },
     {
