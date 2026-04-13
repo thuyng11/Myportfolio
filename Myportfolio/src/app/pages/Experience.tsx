@@ -12,18 +12,6 @@ interface ExperienceItem {
 export function Experience() {
   const experiences: ExperienceItem[] = [
     {
-      title: 'Data Analyst (Capstone Project)',
-      organization: 'UCI School of ICS & UCI School of Medicine, Department of Surgery',
-      location: 'Irvine, CA',
-      period: 'March 2026 - Present',
-      responsibilities: [
-        'Spearheaded data cleaning and preprocessing for 20,000+ surgical records, handling null values via median imputation and targeted deletion to ensure high data quality for predictive modeling.',
-        'Conducted comprehensive Exploratory Data Analysis (EDA) using Python (NumPy, Pandas, Matplotlib, Missingno) to visualize feature distributions, target variables, and uncover key data trends.',
-        'Developed and fine-tuned machine learning models (Logistic Regression, XGBoost, Hierarchical Clustering) using Scikit-Learn, analyzing error metrics and feature coefficients to achieve a high-performing AUC-ROC score of 0.81.' 
-      ],
-      color: 'primary',
-    },
-    {
       title: 'PHIT (Public Health Informatics & Technology) Intern',
       organization: "Children's Hospital of Orange County (CHOC)",
       location: 'Orange, CA',
@@ -51,13 +39,24 @@ export function Experience() {
       color: 'accent',
     },
     {
+      title: 'STEM Tutor',
+      organization: 'UCI TRIO Program',
+      location: 'Irvine, CA',
+      period: 'September 2024 - Present',
+      responsibilities: [
+        'Conducted weekly 1-on-1 and group tutoring session for 100+ first generation and low-income TRIO students.',
+        'Collaborated with team of 3+ and leadership to organize academic workshops and events.',
+      ],
+      color: 'primary',
+    },
+    {
       title: 'Student Analyst',
       organization: 'UCI Institute of Transportation Studies (ITS)',
       location: 'Irvine, CA',
       period: 'September 2024 - December 2025',
       responsibilities: [
         'Analyzed 2020–2024 LinkedIn performance using Excel (PivotTables, lookup functions) to identify content trends and peak engagement',
-        'Developed and presented a posting strategy and schedule that increased engagement rate by 39.7%',
+        'Developed and presented to leadership a posting strategy and schedule that increased engagement rate by 39.7%',
       ],
       color: 'primary',
     },
