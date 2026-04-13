@@ -26,7 +26,7 @@ export function Projects() {
         '90+ features and targets visualized',
         '0.81 AUC ROC & feature engineering',
       ],
-      color: 'accent',
+      color: 'primary',
       githubLink: 'https://github.com/keerthana-girish/Empowered-PI',
     },
     {
@@ -66,8 +66,8 @@ export function Projects() {
       period: 'October 2025 - December 2025',
       technologies: ['Python', 'Multithreading', 'Information Retrieval', 'Indexing', 'beautifulsoup', 'lxml'],
       description: [
-        'Designed a web crawler that collected and indexed data from 10K+ ICS pages using a distributed caching server.'
-        'Implemented a search and retrieval pipeline with text preprocessing, inverted index construction, and multithreaded crawling, improving search efficiency and reducing crawl latency by 45%.'
+        'Designed a web crawler that collected and indexed data from 10K+ ICS pages using a distributed caching server.',
+        'Implemented a search and retrieval pipeline with text preprocessing, inverted index construction, and multithreaded crawling, improving search efficiency and reducing crawl latency by 45%.',
         'Applied tokenization, normalization, and ranking techniques to improve search relevance and retrieval efficiency by 20%.',
       ],
       highlights: [
