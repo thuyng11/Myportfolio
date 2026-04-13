@@ -15,8 +15,8 @@ export function Projects() {
     {
       title: 'Data Science (Capstone Project)',
       period: 'March 2026 - Present',
-      technologies: [Python, numpy, pandas, matplotlib, skicit-learn, PostgreSQL],
-      responsibilities: [
+      technologies: ['Python', 'numpy', 'pandas', 'matplotlib', 'scikit-learn', 'PostgreSQL'],
+      description: [
         'Spearheaded data cleaning and preprocessing for 20,000+ surgical records, handling null values via median imputation and targeted deletion to ensure high data quality for predictive modeling.',
         'Conducted comprehensive Exploratory Data Analysis (EDA) using Python (NumPy, Pandas, Matplotlib, Missingno) to visualize 90+ feature distributions, target variables, and uncover key data trends.',
         'Developed and fine-tuned machine learning models (Logistic Regression, XGBoost, Hierarchical Clustering) using Scikit-Learn, analyzing error metrics and feature coefficients to achieve a high-performing AUC-ROC score of 0.81.', 
