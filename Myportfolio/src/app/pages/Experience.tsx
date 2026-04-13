@@ -17,8 +17,9 @@ export function Experience() {
       location: 'Irvine, CA',
       period: 'March 2026 - Present',
       responsibilities: [
-        'Cleaned and transformed surgical outcomes data using R (dplyr, tidyr), identifying non-informative variables and effectively reducing dataset features by 20.9%',
-        'Developed data visualizations using ggplot2 to identify patterns in surgical complications and hospital outcomes across 786 case records',
+        'Spearheaded data cleaning and preprocessing for 20,000+ surgical records, handling null values via median imputation and targeted deletion to ensure high data quality for predictive modeling.',
+        'Conducted comprehensive Exploratory Data Analysis (EDA) using Python (NumPy, Pandas, Matplotlib, Missingno) to visualize feature distributions, target variables, and uncover key data trends.',
+        'Developed and fine-tuned machine learning models (Logistic Regression, XGBoost, Hierarchical Clustering) using Scikit-Learn, analyzing error metrics and feature coefficients to achieve a high-performing AUC-ROC score of 0.81.' 
       ],
       color: 'primary',
     },
